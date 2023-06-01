@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>baloot</title>
+ <meta http-equiv="refresh" content="999">
+
+<style>
+
+body {
+      margin: 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 1fr);
+      height: 100vh;
+    }
+    
+    .section {
+      padding: 20px;
+      border: 1px solid black;
+      box-sizing: border-box;
+    }
+    
+    /* Example styling for sections */
+    .section-1 {
+      background-color: #f0f0f0;
+    }
+    
+    .section-2 {
+      background-color: #e0e0e0;
+    }
+    
+    .section-3 {
+      background-color: #d0d0d0;
+    }
+    
+    .section-4 {
+      background-color: #c0c0c0;
+    }
+    
+    .section-5 {
+      background-color: #b0b0b0;
+    }
+    
+    .section-6 {
+      background-color: #a0a0a0;
+    }
+
+body {
+  background-color: #000000ae;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  margin: 10px;
+  background-color: #ccc;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+
+.card img {
+  width: 100px;
+  height: 100px;
+}
+
+
+div h2{
+    
+    color: rgb(255, 255, 255);
+    text-align: center;  
+    font-family: sans-serif;
+}
+
+div h1{
+    
+    color: rgb(255, 255, 255);
+    text-align: center;  
+    font-family: sans-serif;
+}
+
+
+.card {
+    background-color: #ff0015;
+  box-sizing: border-box;
+  width: 190px;
+  height: 254px;
+  background: rgba(217, 217, 217, 0.58);
+  border: 1px solid white;
+  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(6px);
+  border-radius: 17px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  font-weight: bolder;
+  color: black;
+}
+
+.card:hover {
+  border: 1px solid black;
+  transform: scale(1.05);
+}
+
+.card:active {
+  transform: scale(0.95) rotateZ(1.7deg);
+}
+
+
+
+.calculatebutton {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  background: none;
+  color: #0f1923;
+  cursor: pointer;
+  position: relative;
+  padding: 8px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all .15s ease;
+}
+
+.calculatebutton::before,
+.calculatebutton::after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: calc(50% - 5px);
+  border: 1px solid #7D8082;
+  transition: all .15s ease;
+}
+
+.calculatebutton::before {
+  top: 0;
+  border-bottom-width: 0;
+}
+
+.calculatebutton::after {
+  bottom: 0;
+  border-top-width: 0;
+}
+
+.calculatebutton:active,
+.calculatebutton:focus {
+  outline: none;
+}
+
+.calculatebutton:active::before,
+.calculatebutton:active::after {
+  right: 3px;
+  left: 3px;
+}
+
+.calculatebutton:active::before {
+  top: 3px;
+}
+
+.calculatebutton:active::after {
+  bottom: 3px;
+}
+
+.button_lg {
+  position: relative;
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #0f1923;
+  overflow: hidden;
+  box-shadow: inset 0px 0px 0px 1px transparent;
+}
+
+.button_lg::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 2px;
+  background-color: #0f1923;
+}
+
+.button_lg::after {
+  content: '';
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 4px;
+  height: 4px;
+  background-color: #0f1923;
+  transition: all .2s ease;
+}
+
+.button_sl {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: -1px;
+  left: -8px;
+  width: 0;
+  background-color: #ff4655;
+  transform: skew(-15deg);
+  transition: all .2s ease;
+}
+
+.button_text {
+  position: relative;
+}
+
+.calculatebutton:hover {
+  color: #0f1923;
+}
+
+.calculatebutton:hover .button_sl {
+  width: calc(100% + 15px);
+}
+
+.calculatebutton:hover .button_lg::after {
+  background-color: #fff;
+}
+
+
+
+</style>
+
+<script>
+
+var score = 0; // initialize score variable to 0
+
+		function addPointsA() {
+			score += 11; // add 11 points to the A
+			document.getElementById("score").innerHTML = score; // update the score display
+		}
+
+        function addPoints10() {
+			score += 10; // add 10 points to the 10
+			document.getElementById("score").innerHTML = score; // update the score display
+		}
+
+        function addPointsking() {
+			score += 4; // add 4 points to the king
+			document.getElementById("score").innerHTML = score; // update the score display
+		}
+
+        function addPointsqueen() {
+			score += 3; // add 3 points to the queen
+			document.getElementById("score").innerHTML = score; // update the score display
+		}
+
+        function addPointsprince() {
+			score += 2; // add 2 points to the prince
+			document.getElementById("score").innerHTML = score; // update the score display
+		}
+
+        function addPointsearth() {
+			score += 10; // add 10 points to the earth
+			document.getElementById("score").innerHTML = score; // update the score display
+		}
+        
+        function deletePoints() {
+			score = 0; // set the score to 0
+			document.getElementById("score").innerHTML = score; // update the score display
+        }
+
+
+        function calculateScore() {
+    var scoreElement = document.getElementById("score");
+    var score = parseInt(scoreElement.innerHTML);
+
+    var closestTo5 = Math.round(score / 10) * 10; // Find the closest multiple of 10 to the score
+    var calculatedScore = Math.floor(closestTo5 / 10) * 2; // Divide by 10, round down, and multiply by 2
+
+    scoreElement.innerHTML = calculatedScore; // Update the score display
+}
+
+
+</script>
+
+
+
+
+</head>
+
+
+
+
+<header> <div> <h2>baloot calculater</h2></div></header>
+
+<body>
+   
+
+    <div>
+        <h1>Score: <span id="score">0</span></h1>
+    </div>
+
+
+    <button class="calculatebutton" onclick="calculateScore()">
+        <span class="button_lg">
+            <span class="button_sl"></span>
+            <span class="button_text">Calculate score</span>
+        </span>
+    </button>
+    <!--img button-->
+
+
+        <input class="card" type="image" name="Name of image button" onclick="addPointsA()" src=C:\Users\AS\Documents\VScode\baloot\img\images.jpg >  
+        <input class="card" type="image" name="Name of image button" onclick="addPoints10()" src=C:\Users\AS\Documents\VScode\baloot\img\120px-Playing_card_spade_10.svg.png >  
+        <input class="card" type="image" name="Name of image button" onclick="addPointsking()" src=C:\Users\AS\Documents\VScode\baloot\img\download.png >  
+        <input class="card" type="image" name="Name of image button" onclick="addPointsqueen()" src=C:\Users\AS\Documents\VScode\baloot\img\51_Q_di_picche-218x300.jpg >  
+        <input class="card" type="image" name="Name of image button" onclick="addPointsprince()" src=C:\Users\AS\Documents\VScode\baloot\img\esrNQZ4tbNgjapNR1NsSu146akzb3gEE554Y4fZr.png >  
+        <input class="card" type="image" name="Name of image button" onclick="addPointsearth()" src=C:\Users\AS\Documents\VScode\baloot\img\220px-Theodoor_Rombouts_-_Joueurs_de_cartes.jpg >  
+       
+
+
+
+</body>
+
+<footer>    
+
+
+
+</footer>
+    
+</body>
+</html>
